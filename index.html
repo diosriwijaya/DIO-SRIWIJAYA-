@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CV - Muhammad Dio Sriwijaya</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #000814;
+    color: #ccd6f6;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #3da5f5;
+    text-decoration: none;
+    transition: color 0.25s ease;
+    position: relative;
+    font-weight: 600;
+  }
+  a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #3da5f5;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+    bottom: 0;
+    left: 0;
+  }
+  a:hover::after {
+    width: 100%;
+    left: 0;
+    background: #00b0ff;
+  }
+  a:hover {
+    color: #00b0ff;
+  }
+
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 60px auto 100px;
+    padding: 30px 35px 40px;
+    background: #00122b;
+    border-radius: 20px;
+    box-shadow: 0 25px 45px rgb(0 176 255 / 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .container::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 300px;
+    height: 300px;
+    background: #003566;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    z-index: 0;
+    transform: rotate(45deg);
+  }
+  .container::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 300px;
+    height: 300px;
+    background: #00509e;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    z-index: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 4px solid #3da5f5;
+    position: relative;
+    z-index: 1;
+  }
+  header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #60a5fa;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0,176,255,0.7);
+  }
+  header p {
+    font-size: 1.15rem;
+    color: #90caf9;
+    font-weight: 600;
+  }
+
+  /* Sections */
+  section {
+    margin-top: 45px;
+    position: relative;
+    z-index: 1;
+  }
+  section h2 {
+    font-size: 2.4rem;
+    color: #3da5f5;
+    margin-bottom: 25px;
+    font-weight: 700;
+    border-left: 8px solid #00b0ff;
+    padding-left: 14px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0,176,255,0.7);
+  }
+
+  /* About */
+  #about p {
+    font-size: 1.15rem;
+    color: #cfd9e9;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.75;
+    letter-spacing: 0.03em;
+  }
+
+  /* Skills */
+  #skills ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+    gap: 22px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  #skills li {
+    background: linear-gradient(135deg, #0496ff, #00b0ff);
+    color: #e0f2ff;
+    font-weight: 700;
+    padding: 18px 0;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgb(0 176 255 / 0.5);
+    text-align: center;
+    cursor: default;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #skills li:hover {
+    background: linear-gradient(135deg, #00b0ff, #007ace);
+    box-shadow: 0 12px 28px rgb(0 176 255 / 0.8);
+    transform: translateY(-6px) scale(1.08);
+  }
+
+  /* Education, Experience */
+  .content-text {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    color: #a6bde8;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+  }
+  .experience-item {
+    margin-bottom: 28px;
+  }
+  .experience-item strong {
+    font-weight: 700;
+    color: #3da5f5;
+    font-size: 1.18rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .experience-description {
+    margin-top: 8px;
+    color: #b6c8f4;
+    font-style: italic;
+  }
+
+  /* Contact */
+  #contact {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #a6bde8;
+  }
+  #contact p {
+    margin-bottom: 14px;
+  }
+  #contact a {
+    color: #3da5f5;
+    font-weight: 700;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.4s ease;
+    font-size: 1.17rem;
+  }
+  #contact a:hover {
+    border-color: #00b0ff;
+    color: #00b0ff;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 25px 10px;
+    background: #001933;
+    color: #bbe1ff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: auto;
+    box-shadow: 0 -4px 15px rgb(0 0 0 / 0.2);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2.2rem;
+    }
+    section h2 {
+      font-size: 1.8rem;
+    }
+    #skills ul {
+      grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+    }
+    .experience-item strong {
+      font-size: 1.1rem;
+    }
+    #contact a {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="page-title">
+    <header>
+      <h1 id="page-title">Muhammad Dio Sriwijaya</h1>
+      <p>Email: <a href="mailto:Denissriwijayam@gmail.com" aria-label="Send email to Denissriwijayam at gmail dot com">Denissriwijayam@gmail.com</a> | Phone: <a href="tel:083827795387" aria-label="Call phone number 083827795387">083827795387</a></p>
+    </header>
+
+    <section id="about" tabindex="0" aria-label="About Me">
+      <h2>Tentang Saya</h2>
+      <p>Saya seorang profesional berusia 29 tahun yang kreatif, pekerja keras, dan selalu haus belajar hal baru. Berpengalaman di bidang IT Support, administrasi, serta memiliki keahlian desain grafis dan komunikasi yang baik.</p>
+    </section>
+
+    <section id="skills" tabindex="0" aria-label="Skills">
+      <h2>Keterampilan</h2>
+      <ul>
+        <li>Negosiasi</li>
+        <li>Fotografi</li>
+        <li>Desain Grafis</li>
+        <li>Komunikasi</li>
+        <li>Dukungan IT</li>
+      </ul>
+    </section>
+
+    <section id="education" tabindex="0" aria-label="Education">
+      <h2>Pendidikan</h2>
+      <div class="content-text">
+        <p><strong>2017</strong> - Universitas Alma Ata, Yogyakarta - Jurusan Teknik Informatika (Belum selesai)</p>
+      </div>
+    </section>
+
+    <section id="experience" tabindex="0" aria-label="Experience">
+      <h2>Pengalaman</h2>
+      <div class="content-text">
+        <div class="experience-item">
+          <strong>2019 - IT Support dan Administrasi di PT Pegadaian</strong>
+          <p class="experience-description">Bertanggung jawab atas relokasi jaringan, instalasi jaringan, instalasi Linux &amp; Windows, penggantian part komputer, serta administrasi logistik.</p>
+        </div>
+        <div class="experience-item">
+          <strong>2022 - Staff Gudang di Bebek Boedjang Pontianak</strong>
+          <p class="experience-description">Mengelola stok gudang dan melakukan stock opname secara rutin untuk memastikan akurasi inventaris.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" tabindex="0" aria-label="Contact Information">
+      <h2>Kontak</h2>
+      <p>Saya membuka peluang untuk kolaborasi dan kerja sama profesional. Jangan ragu untuk menghubungi saya!</p>
+      <p>Email: <a href="mailto:Denissriwijayam@gmail.com">Denissriwijayam@gmail.com</a></p>
+      <p>Phone: <a href="tel:083827795387">083827795387</a></p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2024 Muhammad Dio Sriwijaya. All rights reserved.
+  </footer>
+</body>
+</html>
+
